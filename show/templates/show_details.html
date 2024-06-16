@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+  </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+    body {
+      font-family: Poppins, sans-serif;
+    }
+  </style>
+  <body>
+    <table class="table">
+      <tbody>
+        <tr>
+          <th scope="col">Movie</th>
+          <th scope="col">{{ show.name }}</th>
+        </tr>
+        <tr>
+          <th scope="col">Theatre</th>
+          <th scope="col">{{ show.theatre.name }}</th>
+        </tr>
+        <tr>
+          <th scope="col">Location</th>
+          <td scope="col">{{ show.theatre.place }}</td>
+        </tr>
+        <tr>
+          <th scope="col">Screen</th>
+          <td scope="col">{{ show.screen_number }}</td>
+        </tr>
+        <tr>
+          <th scope="col">Available Seats</th>
+          <td scope="col">{{ show.capacity }}</td>
+        </tr>
+        <tr>
+          <th scope="col">Ticket Price</th>
+          <td scope="col">{{ show.ticket_price }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

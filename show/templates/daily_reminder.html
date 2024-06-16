@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Reminder</title>
+</head>
+<body>
+    {% if bookings %}
+        <p>You'Ve Booked Tickets for the following Shows</p>
+        {% for booking in bookings %}
+            <div class="show">
+                <p>Name: {{ booking.show.name }}</p>
+                <p>Timings: {{ booking.show.show_timing }}</p>
+                <p>Date: {{ booking.show.show_date }}</p>
+                <p>Screen {{ booking.show.screen_number }}, {{ booking.show.theatre.name }}, {{ booking.show.theatre.place }}</p>
+                <b>Total Amount : Rs. {{ booking.total_price }}</b>
+            </div>
+        {% endfor %}
+    {% elif active and not bookings %}
+            <p>You've not booked any ticktes for today</p>
+    {% else %}
+        <p>Dear User,New Movies Added. Please Checkout</p>
+    {% endif %}
+</body>
+</html>

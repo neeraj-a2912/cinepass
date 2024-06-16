@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Montly Report</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="container">
+    {% if monthly_bookings %}
+    <p>Total Movies Watched this Month - {{ monthly_bookings | length}}</p>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Movie</th>
+          <th scope="col">Date</th>
+          <th scope="col">Timing</th>
+          <th scope="col">Theatre</th>
+          <th scope="col">Place</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for booking in monthly_bookings %}
+        <tr>
+          <td scope="col">{{ booking.show.name }}</td>
+          <td scope="col">{{ booking.show.show_date }}</td>
+          <td scope="col">{{ booking.show.show_timing }}</td>
+          <td scope="col">{{ booking.show.theatre.name }}</td>
+          <td scope="col">{{ booking.show.theatre.place }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <p>Genre Wise Breakdown of the Movies</p>
+    <table class="table table-sm">
+      <thead>
+        <tr>
+          <th scope="col">Genre</th>
+          <th scope="col">Number of Movies Watched</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for genre, count in genres.items() %} {% if count > 0 %}
+        <tr>
+          <td scope="col">{{ genre }}</td>
+          <td scope="col">{{ count }}</td>
+        </tr>
+        {% endif %} {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p>You've not Watched any movies this month</p>
+    {% endif %}
+  </body>
+</html>
